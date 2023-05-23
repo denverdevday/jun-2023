@@ -9,8 +9,8 @@
     developer event. With presentation topics ranging from desktop, micro-services, and web development
     to patterns, the cloud, and soft skills, Denver Dev Day is your awesome, free, day-long resource for
     developer learning.">
-    <meta property="og:image" content="https://denverdevday.github.io/jun-2022/assets/screenshot.jpg">
-    <meta property="og:url" content="https://denverdevday.github.io/jun-2022/">
+    <meta property="og:image" content="https://denverdevday.github.io/jun-2023/assets/screenshot.jpg">
+    <meta property="og:url" content="https://denverdevday.github.io/jun-2023/">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./ddd.css">
@@ -48,7 +48,13 @@
 <div id="menu" class="container-fluid mt-3 mb-3">
     <div class="row justify-content-md-center">
         <div class="col-md-auto">
-            <a href="https://sessionize.com/denver-dev-day-spring-2023">Call for Speakers</a>
+            <a href="./index.html#schedule">Schedule</a>
+        </div>
+        <div class="col-md-auto">
+            <a href="./sessions.html#sessions">Sessions</a>
+        </div>
+        <div class="col-md-auto">
+            <a href="./speakers.html#speakers">Speakers</a>
         </div>
         <div class="col-md-auto">
             <a href="./index.html#sponsors">Sponsors</a>
@@ -104,6 +110,47 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="schedule" class="container-fluid mt-5 mb-5">
+    <h2 class="mb-3">Schedule</h2>
+    <a name="schedule"></a>
+
+    <!-- Schedule widget -->
+    <script type="text/javascript" src="https://sessionize.com/api/v2/mz4u1upx/view/gridtable"></script>
+
+    <script type="text/javascript">
+        window.addEventListener('sessionize.onload', function (e) {
+            const roomCapacityRx = /\s+\(\d+\)/;
+
+            document.querySelectorAll('th').forEach(t => {
+               t.innerText = t.innerText.replace(roomCapacityRx, '');
+            });
+
+            document.querySelectorAll('td[data-room-name]').forEach(d => {
+               d.dataset.roomName = d.dataset.roomName.replace(roomCapacityRx, '');
+            });
+
+            let hl = document.querySelectorAll('tr.sz-row-highlight');
+            hl.forEach(h => h.className = h.className.replace('sz-row-highlight', ''));
+
+            function eventSession(id) {
+                let divElement = document.querySelector('div[data-sessionid="' + id + '"]');
+                divElement.classList.add('text-center');
+                let divRoomElement = divElement.querySelector('div[class="sz-session__meta-group"]');
+                divRoomElement.parentElement.removeChild(divRoomElement);
+            }
+
+            eventSession('d0ea2d8a-1da7-49c6-b320-fda448964cd7'); // Breakfast
+            eventSession('17f4da84-556c-49e7-b40e-487ca0d400c8'); // Keynote
+            eventSession('4d444599-9df0-44d1-aa8f-70120fc76c89'); // Lunch
+            eventSession('f30c813f-499b-4049-b102-de7f00302377'); // Giveaway
+        });
+    </script>
+
+    <!-- TODO: Render schedule to PDF as per attendee request -->
+    <!-- https://medium.com/coderbyte/generate-a-pdf-with-javascript-3e53ca7b47e -->
+
 </div>
 
 </body>
