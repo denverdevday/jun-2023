@@ -116,12 +116,14 @@
     <h2 class="mb-3">Schedule</h2>
     <a name="schedule"></a>
 
-    <!-- Schedule widget -->
     <script type="text/javascript" src="https://sessionize.com/api/v2/mz4u1upx/view/gridtable"></script>
 
     <script type="text/javascript">
         window.addEventListener('sessionize.onload', function (e) {
             const roomCapacityRx = /\s+\(\d+\)/;
+
+            let dayTitle = document.querySelector('h1[class="sz-day__title"]');
+            dayTitle.parentElement.removeChild(dayTitle);
 
             document.querySelectorAll('th').forEach(t => {
                t.innerText = t.innerText.replace(roomCapacityRx, '');
