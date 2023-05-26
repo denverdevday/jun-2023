@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./ddd.css">
-    <link rel="stylesheet" href="./sessionize.css">
     <link rel="stylesheet" href="./eventbrite-hack.css">
     <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.png">
 </head>
@@ -43,6 +42,29 @@
             Denver, CO&nbsp;80237
         </address>
     </div>
+</div>
+
+<div class="container-fluid text-center">
+    <!-- Noscript content for added SEO -->
+    <noscript><a href="https://denverdevday-jun-2023.eventbrite.com" rel="noopener noreferrer" target="_blank">Get Your Ticket!</a></noscript>
+    <!-- You can customize this button any way you like -->
+    <button id="eventbrite-widget-modal-trigger-618213050877" type="button">Get Your Ticket!</button>
+
+    <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+
+    <script type="text/javascript">
+        var exampleCallback = function() {
+            console.log('Order complete!');
+        };
+
+        window.EBWidgets.createWidget({
+            widgetType: 'checkout',
+            eventId: '618213050877',
+            modal: true,
+            modalTriggerElementId: 'eventbrite-widget-modal-trigger-618213050877',
+            onOrderComplete: exampleCallback
+        });
+    </script>
 </div>
 
 <div id="menu" class="container-fluid mt-3 mb-3">
@@ -144,7 +166,7 @@
             }
 
             eventSession('d0ea2d8a-1da7-49c6-b320-fda448964cd7'); // Breakfast
-            eventSession('17f4da84-556c-49e7-b40e-487ca0d400c8'); // Keynote
+            eventSession('17f4da84-556c-49e7-b40e-487ca0d400c8'); // Opening Ceremony
             eventSession('4d444599-9df0-44d1-aa8f-70120fc76c89'); // Lunch
             eventSession('f30c813f-499b-4049-b102-de7f00302377'); // Giveaway
         });
